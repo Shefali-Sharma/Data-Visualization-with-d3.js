@@ -8,8 +8,121 @@
 </head>
 <body>
 <!--Place all DOM elements here -->
+	<p>Hello</p>
 <script>
-//Write your code here
+	var data = [123,44,30,41,76,89,213,456,8,34,12,543];
+	//console.log(data[0]);
+		
+	var donut = {key: "Glazed", value: 123};	
+	//console.log(donut.key, donut.value);
+	
+	var donuts = [
+		{key: "Glazed", 	value: 123},
+		{key: "Jelly", 		value: 44},
+		{key: "Holes", 		value: 30},
+		{key: "Sprinkles", 	value: 41},
+		{key: "Crumb", 		value: 76},
+		{key: "Chocolate", 	value: 89},
+		{key: "Coconut", 	value: 213},
+		{key: "Cream",	 	value: 456},
+		{key: "Cruller", 	value: 8},
+		{key: "Eclair", 	value: 34},
+		{key: "Fritter", 	value: 12},
+		{key: "Bearclaw", 	value: 543}
+		
+	];
+	
+	//console.log(donuts[1].key, donuts[1].value);
+	
+	for(var i = 0, len = donuts.length; i<len; i++){
+		//console.log(donuts[i].key, donuts[i].value);
+	}
+	
+	donuts.forEach(function(entry){
+		//console.log(entry.key, entry.value);
+	});
+	
+	
+	var dataGreaterThan50 = data.filter(function(entry){
+		return entry>50;
+	}
+	);
+	//console.log("dataGreaterThan50 : ", dataGreaterThan50);
+
+
+	var donutsGreaterThan50 = donuts.filter(function(entry){
+		return entry.value>50;
+	}
+	);
+	//console.log("donutsGreaterThan50 : ", donutsGreaterThan50);
+	
+	var reformattedDonuts = donuts.map(function(entry){
+		return {
+			donut: entry.key,
+			qty: entry.value,
+			yuuuuu: entry.value+3
+		};
+	});
+	
+	
+	reformattedDonuts.forEach(function(entry){
+		console.log(entry);
+	});
+	
+	//Using d3 library
+	
+	var dataMinValue = d3.min(data);
+	var dataMaxValue = d3.max(data);
+	var dataLowHighValue = d3.extent(data);
+	//console.log(dataMinValue, dataMaxValue, dataLowHighValue);	
+	
+	var donutsMinValue = d3.min(donuts, function(d){
+		return d.value;
+	});
+	
+	var donutsMaxValue = d3.max(donuts, function(d){
+		return d.value;
+	});
+	
+	var donutsLowHighValue = d3.extent(donuts, function(d){
+		return d.value;
+	});
+	
+	
+	console.log(donutsMinValue, donutsMaxValue, donutsLowHighValue);	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </script>	
 </body>
 </html>
