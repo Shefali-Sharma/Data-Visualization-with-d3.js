@@ -14,6 +14,14 @@
 	var h = 450;
 	var data = [123,44,30,41,76,89,213,456,8,34,12,543];
 
+	var x = d3.scale.linear()
+			.domain([0, d3.max(data)])
+			.range([0, w]);
+			
+	var y = d3.scale.linear() 
+			.domain([0, data.length])
+			.range([0, h]); 
+
 	var svg = d3.select("body").append("svg")
 				.attr("id", "chart")
 				.attr("width", w)
@@ -26,12 +34,14 @@
 			.attr("class", "bar")
 			.attr("x", 0)
 			.attr("y", function(d, i){
-				return i * 20;
+				return y(i);
 			})
 			.attr("width", function(d, i){
-				return d;
+				return x(d);
 			})
-			.attr("height", 19);
+			.attr("height", function(d,i){
+				return y(1) - 1;
+			});
 		
 	
 	
