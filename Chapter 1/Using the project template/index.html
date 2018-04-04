@@ -8,10 +8,26 @@
 </head>
 <body>
 <!--Place all DOM elements here -->
-	<svg id = "chart"></svg>
 <script>
+
+	var w = 800;
+	var h = 450;
 	var data = [123,44,30,41,76,89,213,456,8,34,12,543];
-	//console.log(data[0]);
+
+	var svg = d3.select("body").append("svg")
+				.attr("id", "chart")
+				.attr("width", w)
+				.attr("height", h);
+				
+	svg.selectAll(".bar")
+			.data(data)
+			.enter()
+			.append("rect")
+			.attr("class", "bar")
+			.attr("x", 0)
+			.attr("y", 0)
+			.attr("width", 20)
+			.attr("height", 20);
 		
 	
 	
