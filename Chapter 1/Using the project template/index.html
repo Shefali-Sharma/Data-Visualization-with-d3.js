@@ -47,6 +47,11 @@
 	avg.selectAll(".bar-label")
 			.data(data)
 			.enter()
+				.append("text")
+				.classed("bar-label", true)
+				.text(function(d,i){
+					return d;
+				});
 	
 	
 	
